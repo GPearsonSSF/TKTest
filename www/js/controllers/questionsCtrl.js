@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
-.controller('QuestionsCtrl',['$scope', '$stateParams', 'testInfo', 'TKAnswersService', '$state', '$ionicHistory',
-function($scope, $stateParams, testInfo, TKAnswersService, $state, $ionicHistory) {
+.controller('QuestionsCtrl',['$scope', '$stateParams', 'testInfo', 'TKAnswersService','TKResultsButtonService', '$state', '$ionicHistory',
+function($scope, $stateParams, testInfo, TKAnswersService, TKResultsButtonService, $state, $ionicHistory) {
     $scope.qNumber = $stateParams.questionID;
     testInfo.forEach(function(infoDict) {
      if(infoDict.Answer_ID === "A")
@@ -33,6 +33,10 @@ function($scope, $stateParams, testInfo, TKAnswersService, $state, $ionicHistory
     var date = new Date();
     answersDict["createDate"] = date.toUTCString();
     TKAnswersService.saveTest(answersDict);
+    $ionicHistory.nextViewOptions({
+         historyRoot: true
+    });
+    TKResultsButtonService.setShouldShowMenuButton(true);
     $ionicHistory.nextViewOptions({
          historyRoot: true
     });

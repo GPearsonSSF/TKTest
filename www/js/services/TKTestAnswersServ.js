@@ -35,5 +35,15 @@ angular.module('TKTestAnswers',[])
         var tempTests = $window.localStorage.tests === undefined ? [] : JSON.parse($window.localStorage.tests);
         tempTests.push(test);
         $window.localStorage.tests = JSON.stringify(tempTests);
+    }
+    service.getTests = function() {
+         return $window.localStorage.tests ? JSON.parse($window.localStorage.tests): [];
     };
+   
+    service.setAnswers = function(answers)
+    {
+        answerCategories = answers;
+    };
+    
+    
 }]);

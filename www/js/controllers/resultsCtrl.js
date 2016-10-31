@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
-.controller('ResultsCtrl', ['$scope', 'TKAnswersService', '$ionicHistory', '$state',
-function($scope, TKAnswersService, $ionicHistory, $state) {
+.controller('ResultsCtrl', ['$scope', 'TKAnswersService', 'TKResultsButtonService', '$ionicHistory', '$state',
+function($scope, TKAnswersService, TKResultsButtonService, $ionicHistory, $state) {
     $scope.menuButtonTapped = function()
     {
         $ionicHistory.nextViewOptions({
@@ -15,6 +15,7 @@ function($scope, TKAnswersService, $ionicHistory, $state) {
     {
         return (value/12)*100;
     }
+    $scope.shouldShowButton = TKResultsButtonService.getShouldShowMenuButton();
     
     $scope.data = [[returnPercentage(answersInfo["competing"]), returnPercentage(answersInfo["collaborating"]),
     returnPercentage(answersInfo["compromising"]), returnPercentage(answersInfo["avoiding"]), returnPercentage(answersInfo["accommodating"])]];

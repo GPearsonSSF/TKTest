@@ -11,9 +11,7 @@ angular.module('TKTestQuestions', [])
             }
         });
     };
-}]);
-
-service.getQuestion = function(questionID)
+    service.getQuestion = function(questionID)
 {
         var results = [];
         questions.forEach(function(question){
@@ -23,3 +21,5 @@ service.getQuestion = function(questionID)
         });
         return results;
 };
+}]);
+

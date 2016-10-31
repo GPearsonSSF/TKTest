@@ -36,6 +36,6 @@ function($scope, $stateParams, testInfo, TKAnswersService, $state, $ionicHistory
     $ionicHistory.nextViewOptions({
          historyRoot: true
     });
-    $state.go('lobby');
+    $state.go('results');
 }
 }]); 

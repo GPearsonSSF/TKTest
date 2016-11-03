@@ -10,5 +10,13 @@ angular.module("RESTServices", [])
                 data: newUserData
             });
         };
+        
+        SSFUsersRest.login = function(loginData){
+            return $http({
+                url: "https://loopback-backend-gpearsonssf.c9users.io:8080/api/SSFUsers/login",
+                method: 'POST',
+                data: loginData
+            });
+        };
         }
         ]);

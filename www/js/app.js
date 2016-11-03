@@ -31,19 +31,18 @@ angular.module('starter', ['ionic', 'TKTestQuestions', 'starter.controllers', 'T
     templateUrl: 'templates/lobby.html',
   })
   .state('landing', {
-    url: '/landing',
-    templateUrl: 'templates/landing.html',
-    controller: 'landingCtrl'
+    url: '/',
+    templateUrl: 'templates/landing.html'
   })
   .state('register', {
-    url: '/',
+    url: '/register',
     templateUrl: 'templates/register.html',
     controller: 'RegisterCtrl'
   })
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
-    controller: 'loginCtrl'
+    controller: 'LoginCtrl'
   })
   .state('question', {
     url: '/question:questionID',

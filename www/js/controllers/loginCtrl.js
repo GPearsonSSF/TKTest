@@ -1,18 +1,18 @@
 angular.module('starter.controllers')
-.controller('RegisterCtrl',['$scope', '$stateParams','$state', '$http', 'SSFUsersRest', '$window',
+.controller('LoginCtrl',['$scope', '$stateParams','$state', '$http', 'SSFUsersRest', '$window',
 function($scope, $stateParams, $state, $http, SSFUsersRest, $window ) {
         $scope.user = {};
         
-        $scope.signupForm = function(form) { 
+        $scope.loginForm = function(form) { 
                 
                 if(form.$invalid) return alert("Please complete the form before proceeding.");
                 
-                SSFUsersRest.post($scope.user)
+                SSFUsersRest.login($scope.user)
                 .then(function(response) {
                         // handle different responses and decide what happens next
-                                $window.localStorage.userId = response.data.id;
-                                $window.localStorage.token = response.data.token; 
-                                
+                                $window.localStorage.userId = response.data.userId;
+                                $window.localStorage.token = response.data.id; 
+                                console.log(response.status);
                         if(response.status === 200){
                                 
                                 $state.go('lobby');

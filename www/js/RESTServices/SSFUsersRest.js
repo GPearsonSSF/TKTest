@@ -18,5 +18,13 @@ angular.module("RESTServices", [])
                 data: loginData
             });
         };
+        
+        SSFUsersRest.logout = function(userToken){
+            return $http({
+                headers: {'Authorization': userToken},
+                url: "https://loopback-backend-gpearsonssf.c9users.io:8080/api/SSFUsers/logout",
+                method: 'POST'
+            });
+        };
         }
         ]);

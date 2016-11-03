@@ -29,6 +29,7 @@ angular.module('starter', ['ionic', 'TKTestQuestions', 'starter.controllers', 'T
   .state('lobby', {
     url: '/lobby',
     templateUrl: 'templates/lobby.html',
+    controller: 'LobbyCtrl'
   })
   .state('landing', {
     url: '/',

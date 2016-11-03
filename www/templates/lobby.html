@@ -1,10 +1,16 @@
 <ion-view view-title="Menu">
-    <ion-content class="padding" ng-controller="LobbyCtrl as lobby">
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="logout()">
+            Logout
+        </button>
+    </ion-nav-buttons>
+    <ion-content class="padding" >
         <button class="button button-block button-royal" ng-click=goToTest()>
             Take test
         </button>
         <button class="button button-block button-royal" ui-sref="history">
             My Results
         </button>
+
     </ion-content>
 <</ion-view>

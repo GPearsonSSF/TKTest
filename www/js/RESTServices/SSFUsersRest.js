@@ -1,5 +1,5 @@
 angular.module("RESTServices", [])
-    .service('SSFUsersRest', ['$http', '$window', '$state',
+    .service('SSFUsersRest', ['$http', '$window', '$state', 
         function($http, $window, $state) {
         var SSFUsersRest = this;
         
@@ -21,7 +21,7 @@ angular.module("RESTServices", [])
         
         SSFUsersRest.logout = function(userToken){
             return $http({
-                headers: {'Authorization': userToken},
+                headers: {Authorization: userToken},
                 url: "https://loopback-backend-gpearsonssf.c9users.io:8080/api/SSFUsers/logout",
                 method: 'POST'
             });

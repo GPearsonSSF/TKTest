@@ -23,9 +23,6 @@ function($scope, $stateParams, $state, $http, SSFUsersRest, $window ) {
                            if (error.status === 404 ){
                                    return alert('Error: 404 File not found');
                            }
-                           if (error.status === 422){
-                                   return alert('Error: Email already taken');
-                           }
                         });
 
 };

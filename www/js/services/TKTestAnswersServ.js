@@ -1,5 +1,5 @@
 angular.module('TKTestAnswers',[])
-.service('TKAnswersService',['$window', function ($window) {
+.service('TKAnswersService',['$window','TestResultsRest', '$http', function ($window, TestResultsRest, $http) {
     var service = this;
     var answerCategories = {
         "competing": 0,
@@ -27,15 +27,13 @@ angular.module('TKTestAnswers',[])
         }
     };
    
-    service.eraseLastAnswer = function() {
-        answerCategories[categoriesStack.pop().toLowerCase()]--;
-    };
    
     service.saveTest = function(test) {
-        var tempTests = $window.localStorage.tests === undefined ? [] : JSON.parse($window.localStorage.tests);
-        tempTests.push(test);
-        $window.localStorage.tests = JSON.stringify(tempTests);
-    }
+        console.log('test2');
+        test.userID = $window.localStorage["userId"];
+        console.log($window.localStorage["userId"]);
+        TestResultsRest.save(test);
+    };
     service.getTests = function() {
          return $window.localStorage.tests ? JSON.parse($window.localStorage.tests): [];
     };
@@ -47,3 +45,11 @@ angular.module('TKTestAnswers',[])
     
     
 }]);
+
+/*   
+service.saveTest = function(test) {
+        var tempTests = $window.localStorage.tests === undefined ? [] : JSON.parse($window.localStorage.tests);
+        tempTests.push(test);
+        $window.localStorage.tests = JSON.stringify(tempTests);
+    }
+*/

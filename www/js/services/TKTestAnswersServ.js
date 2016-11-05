@@ -29,13 +29,21 @@ angular.module('TKTestAnswers',[])
    
    
     service.saveTest = function(test) {
-        console.log('test2');
         test.userID = $window.localStorage["userId"];
-        console.log($window.localStorage["userId"]);
         TestResultsRest.save(test);
     };
     service.getTests = function() {
-         return $window.localStorage.tests ? JSON.parse($window.localStorage.tests): [];
+         //return $window.localStorage.tests ? JSON.parse($window.localStorage.tests): [];
+
+         return TestResultsRest.get()
+            .then(function(response){
+                if (response.status === 200){
+                    return response.data;
+                }
+                else {
+                    alert('Error getting test history. Have you taken one yet?')
+                }
+            });
     };
    
     service.setAnswers = function(answers)

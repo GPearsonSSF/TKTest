@@ -8,5 +8,12 @@ angular.module("RESTServices")
            data: test
        });
    };
+   
+   TestResultsRest.get = function () {
+     return $http({
+       url: "https://loopback-backend-gpearsonssf.c9users.io:8080/api/TestResults",
+       method: "GET"
+     });
+   };
 }])
  

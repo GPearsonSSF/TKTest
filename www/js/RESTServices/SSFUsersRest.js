@@ -1,6 +1,6 @@
 angular.module("RESTServices", [])
-    .service('SSFUsersRest', ['$http', '$window', '$state', 
-        function($http, $window, $state) {
+    .service('SSFUsersRest', ['$http',
+        function($http) {
         var SSFUsersRest = this;
         
         SSFUsersRest.post = function(newUserData) {

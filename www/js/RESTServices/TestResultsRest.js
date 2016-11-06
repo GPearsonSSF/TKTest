@@ -1,5 +1,5 @@
 angular.module("RESTServices")
- .service('TestResultsRest', ['$http', '$window', '$state', function($http, $window, $state){
+ .service('TestResultsRest', ['$http', function($http){
     var TestResultsRest = this;
    TestResultsRest.save = function(test) {
        return $http({
@@ -9,9 +9,9 @@ angular.module("RESTServices")
        });
    };
    
-   TestResultsRest.get = function () {
+   TestResultsRest.get = function (userID) {
      return $http({
-       url: "https://loopback-backend-gpearsonssf.c9users.io:8080/api/TestResults",
+       url: "https://loopback-backend-gpearsonssf.c9users.io:8080/api/TestResults?filter[where][userID]=" + userID,
        method: "GET"
      });
    };

@@ -32,7 +32,7 @@ function($scope, $stateParams, testInfo, TKAnswersService, TKResultsButtonServic
     var answersDict = angular.copy(TKAnswersService.getAnswers());
     var date = new Date();
     answersDict["createDate"] = date.toUTCString();
-    console.log('test1')
+
     TKAnswersService.saveTest(answersDict);
     $ionicHistory.nextViewOptions({
          historyRoot: true

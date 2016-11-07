@@ -4,7 +4,7 @@ angular.module('TKTestQuestions', [])
     var questions = [];
     
     service.all = function () {
-        QuestionsRest.get($window.localStorage['token'])
+        QuestionsRest.get($window.localStorage.token)
         .then(function(response){
             if (response.status == 200)
             {

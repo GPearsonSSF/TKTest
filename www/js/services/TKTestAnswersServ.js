@@ -28,14 +28,14 @@ angular.module('TKTestAnswers',[])
     };
    
    
-    service.saveTest = function(test) {
+    service.saveTest = function(test, userToken) {
         test.userID = $window.localStorage["userId"];
-        TestResultsRest.save(test);
+        TestResultsRest.save(test, userToken);
     };
     service.getTests = function() {
          //return $window.localStorage.tests ? JSON.parse($window.localStorage.tests): [];
 
-         return TestResultsRest.get($window.localStorage.userId)
+         return TestResultsRest.get($window.localStorage.userId, $window.localStorage.token)
             .then(function(response){
                 if (response.status === 200){
                     return response.data;
